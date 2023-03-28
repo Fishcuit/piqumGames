@@ -4,6 +4,8 @@ Definition of urls for PiQum_Web.
 
 
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from app import views
 
@@ -16,3 +18,6 @@ urlpatterns = [
     path('game4/', views.game4, name='game4'),
     
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

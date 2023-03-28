@@ -1,0 +1,1 @@
+web: gunicorn piqumGames.wsgi --log-file -

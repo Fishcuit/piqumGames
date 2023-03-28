@@ -2,22 +2,26 @@
     "version": 2,
     "builds": [
       {
+        "src": "piqumGames/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+      },
+      {
         "src": "build_files.sh",
-        "use": "@vercel/python"
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "staticfiles"
+        }
       }
     ],
     "routes": [
       {
         "src": "/static/(.*)",
-        "dest": "/staticfiles/app/$1"
+        "dest": "/static/$1"
       },
       {
         "src": "/(.*)",
-        "dest": "manage.py",
-        "methods": ["GET", "POST"]
+        "dest": "piqumGames/wsgi.py"
       }
-    ],
-    "env": {
-      "DJANGO_SETTINGS_MODULE": "piqumGames.settings"
-    }
+    ]
   }

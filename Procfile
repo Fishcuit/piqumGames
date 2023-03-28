@@ -1,1 +1,1 @@
-web: gunicorn piqumGames.wsgi --log-file -
+web: python manage.py migrate && python manage.py collectstatic && gunicorn piqumGames.wsgi --log-file -

@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "build_files.sh",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/static/(.*)",
+        "dest": "/staticfiles/app/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "manage.py",
+        "methods": ["GET", "POST"]
+      }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "piqumGames.settings"
+    }
+  }

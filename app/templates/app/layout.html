@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }} - KingSize Games</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'app/content/site.css' %}"
+    />
+  </head>
+
+  <body>
+    <header style="position: relative">
+      <div class="w3-top" class="header" id="home">
+        <div
+          class="w3-bar w3-card w3-left-align w3-large heeder-large-screen"
+          style="background-color: #000015"
+        >
+          <a
+            class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-black w3-large"
+            href="javascript:void(0);"
+            onclick="myFunction()"
+            title="Toggle Navigation Menu"
+            ><i class="fa fa-bars"></i
+          ></a>
+
+          <div>
+            <a
+              href="{% url 'home' %}"
+              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
+              >About</a
+            >
+            <a
+              href="#games"
+              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
+            >
+              Games</a
+            >
+            <a
+              href="#contact"
+              class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-black"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div
+          id="navDemo"
+          class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-large"
+        >
+          <a
+            href="#about"
+            class="w3-bar-item w3-button w3-padding-large"
+            onclick="myFunction()"
+            >About</a
+          >
+          <a
+            href="#games"
+            class="w3-bar-item w3-button w3-padding-large"
+            onclick="myFunction()"
+            >Games</a
+          >
+          <a
+            href="#contact"
+            class="w3-bar-item w3-button w3-padding-large"
+            onclick="myFunction()"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+    <section>
+      <div class="hero-banner">
+        <h1>PiQum Series</h1>
+        <p>presented by</p>
+        <img src="{% static 'app/img/KSG_logo.png' %}" alt="" />
+      </div>
+    </section>
+
+    <div class="container body-content">
+      {% block content %}{% endblock %}
+      <hr />
+      <footer>
+        <div class="footer-content">
+          <img
+            class=" "
+            src="{% static 'app/img/kingsize dark.png' %}"
+            alt=""
+          />
+        </div>
+        <div class="footer-bottom">
+          <p>Copyright &copy;2023 KingSize Games Inc.</p>
+        </div>
+      </footer>
+    </div>
+
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
